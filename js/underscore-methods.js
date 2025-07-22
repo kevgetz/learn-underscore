@@ -120,7 +120,14 @@ const underscoreTasks = {
       console.log("Searching for:", query);
     }
 
-    // YOUR CODE HERE
+    let timeoutId;
+
+    return function (query) {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(function () {
+        performSearch(query);
+      }, 300);
+    };
   },
 
   task15_initializeOnce: function () {
